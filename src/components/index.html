@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modernize</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Initially hide the scrollbar */
+      ::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+      }
+
+      /* Show the scrollbar on hover or scroll */
+      .scrollbar:hover::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .scrollbar::-webkit-scrollbar-thumb {
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .scrollbar:hover::-webkit-scrollbar-thumb,
+      .scrollbar:active::-webkit-scrollbar-thumb {
+        opacity: 1;
+      }
+
+      .scrollbar::-webkit-scrollbar-track {
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed z-40 transform -translate-x-full lg:translate-x-0 lg:relative lg:flex lg:w-72 w-64 h-full bg-white border-r border-gray-200 transition-transform duration-300"
+      >
+        <div class="flex flex-col h-full">
+          <!-- Branding -->
+          <div class="p-4 ml-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="174"
+              height="26"
+              fill="none"
+            >
+              <path
+                fill="#11142D"
+                d="M46.027 23V5.12h3.12l6.696 9.096h-1.488l6.552-9.096h3.12V23h-3.288V8.84l1.272.312-6.792 9.048h-.384L48.21 9.152l1.08-.312V23zm27.542.288q-1.92 0-3.504-.888a6.84 6.84 0 0 1-2.496-2.424q-.912-1.536-.912-3.504t.912-3.504a6.84 6.84 0 0 1 2.496-2.424q1.56-.888 3.504-.888 1.92 0 3.48.888a6.66 6.66 0 0 1 2.472 2.424q.936 1.512.936 3.504 0 1.968-.936 3.504a6.84 6.84 0 0 1-2.496 2.424q-1.56.888-3.456.888m0-2.88q1.056 0 1.848-.504.816-.504 1.272-1.392.48-.912.48-2.04 0-1.152-.48-2.016a3.45 3.45 0 0 0-1.272-1.392q-.792-.528-1.848-.528-1.08 0-1.896.528-.816.504-1.296 1.392-.456.864-.456 2.016 0 1.128.456 2.04.48.888 1.296 1.392t1.896.504m15.344 2.88q-1.896 0-3.384-.888a6.6 6.6 0 0 1-2.352-2.472q-.864-1.56-.864-3.456 0-1.92.864-3.456a6.64 6.64 0 0 1 2.352-2.448q1.512-.912 3.36-.912 1.488 0 2.64.6a4.47 4.47 0 0 1 1.848 1.632l-.48.648V4.832h3.144V23h-2.976v-2.52l.336.624q-.672 1.056-1.872 1.632-1.2.552-2.616.552m.336-2.88q1.08 0 1.896-.504t1.272-1.392q.48-.888.48-2.04 0-1.128-.48-2.016a3.4 3.4 0 0 0-1.272-1.416q-.816-.504-1.896-.504-1.056 0-1.896.528-.84.504-1.32 1.392-.456.864-.456 2.016t.456 2.04q.48.888 1.32 1.392t1.896.504m15.909 2.88q-2.016 0-3.528-.912a6.35 6.35 0 0 1-2.352-2.472q-.84-1.56-.84-3.456 0-1.968.84-3.48a6.5 6.5 0 0 1 2.328-2.424q1.488-.888 3.312-.888 1.536 0 2.688.504 1.176.504 1.992 1.392t1.248 2.04q.432 1.128.432 2.448 0 .336-.048.696-.024.36-.12.624h-10.08v-2.4h8.304l-1.488 1.128q.216-1.104-.12-1.968a2.73 2.73 0 0 0-1.056-1.368q-.72-.504-1.752-.504-.984 0-1.752.504-.768.48-1.176 1.44-.384.936-.288 2.28-.096 1.2.312 2.136.432.912 1.248 1.416.84.504 1.92.504t1.824-.456a3.26 3.26 0 0 0 1.2-1.224l2.544 1.248a4.45 4.45 0 0 1-1.2 1.656 6 6 0 0 1-1.944 1.128q-1.104.408-2.448.408m8.503-.288V9.944h2.952v2.904l-.24-.432q.456-1.464 1.416-2.04.984-.576 2.352-.576h.768v2.784h-1.128q-1.344 0-2.16.84-.816.816-.816 2.304V23zm8.977 0V9.944h2.952v2.568l-.24-.456q.456-1.176 1.488-1.776 1.056-.624 2.448-.624 1.44 0 2.544.624 1.128.624 1.752 1.752.624 1.104.624 2.568V23h-3.144v-7.656q0-.864-.336-1.488a2.35 2.35 0 0 0-.936-.96q-.576-.36-1.368-.36-.768 0-1.368.36-.6.336-.936.96t-.336 1.488V23zm14.226 0V9.944h3.144V23zm0-14.52V5.12h3.144v3.36zM141.783 23v-2.544l7.584-8.784.48 1.08h-7.728V9.944h10.512v2.568l-7.44 8.784-.48-1.08h7.968V23zm18.875.288q-2.016 0-3.528-.912a6.35 6.35 0 0 1-2.352-2.472q-.84-1.56-.84-3.456 0-1.968.84-3.48a6.5 6.5 0 0 1 2.328-2.424q1.488-.888 3.312-.888 1.536 0 2.688.504 1.176.504 1.992 1.392t1.248 2.04q.432 1.128.432 2.448 0 .336-.048.696-.024.36-.12.624h-10.08v-2.4h8.304l-1.488 1.128q.216-1.104-.12-1.968a2.73 2.73 0 0 0-1.056-1.368q-.72-.504-1.752-.504-.984 0-1.752.504-.768.48-1.176 1.44-.384.936-.288 2.28-.096 1.2.312 2.136.432.912 1.248 1.416.84.504 1.92.504t1.824-.456a3.26 3.26 0 0 0 1.2-1.224l2.544 1.248a4.45 4.45 0 0 1-1.2 1.656 6 6 0 0 1-1.944 1.128q-1.104.408-2.448.408"
+              ></path>
+              <path
+                fill="#615DFF"
+                d="M20.137 26c2.761 0 5.047-2.258 4.536-4.971a26.7 26.7 0 0 0-1.45-4.979 26.1 26.1 0 0 0-5.448-8.435A25.1 25.1 0 0 0 9.619 1.98 24.5 24.5 0 0 0 4.965.512C2.262-.05 0 2.24 0 5v16a5 5 0 0 0 5 5z"
+              ></path>
+              <path
+                fill="#3DD9EB"
+                d="M13.701 26c-2.761 0-5.047-2.258-4.536-4.971.32-1.702.805-3.37 1.45-4.979a26.1 26.1 0 0 1 5.449-8.435 25.1 25.1 0 0 1 8.155-5.636A24.5 24.5 0 0 1 28.873.512C31.577-.05 33.838 2.24 33.838 5v16a5 5 0 0 1-5 5z"
+                style="mix-blend-mode: multiply"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Menu Items -->
+          <nav class="flex-grow overflow-y-auto scrollbar">
+            <!-- Home Section -->
+            <div class="px-6 py-3 mt-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">Home</p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <a
+                  href="#"
+                  class="flex items-center gap-4 text-white bg-[#5d87ff] p-3 rounded-md"
+                >
+                  <i class="fas fa-home"></i> Modern
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-shopping-cart"></i> eCommerce
+                </a>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-file-alt"></i> Frontend Pages
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Homepage</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>About
+                        Us</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Blog</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Blog
+                        Details</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Contact</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Portfolio</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >pricing</a
+                      >
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">Apps</p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-address-book"></i> Contacts
+                </a>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-blog"></i> Blog
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Posts</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Details</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-shop"></i> Ecommerce
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Shop</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Detail</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>List</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Checkout</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Add
+                        Product</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Edit
+                        Product</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-chart-column"></i> Charts
+                </a>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-user"></i> Users
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Profile</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Followers</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Friends</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Gallery</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-file-invoice"></i> Invoice
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>List</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Create</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Detail</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Edit</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-chart-bar"></i> Kanban
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-clipboard"></i> Notes
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-calendar"></i> Calendar
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-envelope"></i> Email
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-ticket"></i> Tickets
+                </a>
+              </div>
+            </div>
+
+            <!-- Pages Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">Pages</p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-universal-access"></i> Roll Base Access
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-code-branch"></i> Treeview
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-tag"></i> Pricing
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-gear"></i> Account Setting
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-question"></i> FAQ
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-laptop"></i> Landingpage
+                </a>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-newspaper"></i> Widgets
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Cards</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Banners</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Charts</a
+                      >
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Forms Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">Forms</p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-newspaper"></i> Form Elements
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Autocomplete</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Button</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Check
+                        Box</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Radio</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Date
+                        Time</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Slider</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Switch</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-universal-access"></i> Form Layout
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-code-branch"></i> Form Horizontal
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-tag"></i> Form Vertical
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-gear"></i> Form Custom
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-question"></i> Form Wizard
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-laptop"></i> Form Validation
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-laptop"></i> Quill Editor
+                </a>
+              </div>
+            </div>
+
+            <!-- Tables Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">
+                Tables
+              </p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-universal-access"></i> Basic
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-code-branch"></i> Collapsable
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-tag"></i> Enhanced
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-gear"></i> Fixed Header
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-question"></i> Pagination
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-laptop"></i> Search
+                </a>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-newspaper"></i> React Table
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Basic</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Dense</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Filter</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Pagination</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Sorting</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Column
+                        Visibility</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Drag n
+                        Drop</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Editable</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Empty</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Expand</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Sticky</a
+                      >
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- UI Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">UI</p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-newspaper"></i> UI Elements
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Alert</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Accordion</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Avatar
+                      </a>
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Chip</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Dialog</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>List</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Popover</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Rating</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Tabs</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Tooltip</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Transfer
+                        List</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i
+                        >Typography</a
+                      >
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">
+                Charts
+              </p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-universal-access"></i> Line
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-code-branch"></i> Gredient
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-tag"></i> Area
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-gear"></i> Candlestick
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-question"></i> Column
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-laptop"></i> Doughnut & Pie
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-laptop"></i> RadialBar & Radar
+                </a>
+              </div>
+            </div>
+
+            <!-- Auth Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">Auth</p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-file-alt"></i> Login
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Side
+                        Login</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Boxed
+                        Login</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-file-alt"></i> Register
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Side
+                        Register</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Boxed
+                        Register</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-file-alt"></i> Forgot Password
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Side
+                        Forgot Password</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Boxed
+                        Forgot Password</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-file-alt"></i> Two Steps
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Side Two
+                        Steps</a
+                      >
+                    </div>
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Boxed
+                        Two Steps</a
+                      >
+                    </div>
+                  </div>
+                </details>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-shopping-cart"></i> Error
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-shopping-cart"></i> Maintenance
+                </a>
+              </div>
+            </div>
+
+            <!-- Other Section -->
+            <div class="px-6 py-3">
+              <p class="text-[11px] font-bold text-gray-600 uppercase">Other</p>
+              <div class="mt-2 flex flex-col text-[13.5px] text-gray-600">
+                <details class="group">
+                  <summary
+                    class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                  >
+                    <i class="fas fa-file-alt"></i> Menu Level
+                    <i class="fas fa-angle-down ml-auto"></i>
+                  </summary>
+                  <div class="px-4 flex flex-col gap-3 text-sm">
+                    <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                      <a href="#" class="flex items-center gap-4 rounded-lg"
+                        ><i class="fa-regular fa-circle text-[7px]"></i>Level
+                        1</a
+                      >
+                    </div>
+                    <details class="group">
+                      <summary
+                        class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 py-3 rounded-lg"
+                      >
+                        <i class="fa-regular fa-circle text-[7px]"></i>Level 1.1
+                        <i class="fas fa-angle-down ml-auto"></i>
+                      </summary>
+                      <div class="px-4 flex flex-col gap-3 text-sm">
+                        <div class="hover:text-[#5d87ff] py-2 cursor-pointer">
+                          <a href="#" class="flex items-center gap-4 rounded-lg"
+                            ><i class="fa-regular fa-circle text-[7px]"></i
+                            >Level 2</a
+                          >
+                        </div>
+                        <details class="group">
+                          <summary
+                            class="flex items-center gap-4 cursor-pointer hover:text-blue-600 hover:bg-sky-100 py-3 rounded-lg"
+                          >
+                            <i class="fa-regular fa-circle text-[7px]"></i>Level
+                            2.1
+                            <i class="fas fa-angle-down ml-auto"></i>
+                          </summary>
+                          <div class="px-4 flex flex-col gap-3 text-sm">
+                            <div
+                              class="hover:text-[#5d87ff] py-2 cursor-pointer"
+                            >
+                              <a
+                                href="#"
+                                class="flex items-center gap-4 rounded-lg"
+                                ><i class="fa-regular fa-circle text-[7px]"></i
+                                >Level 3</a
+                              >
+                            </div>
+                            <div
+                              class="hover:text-[#5d87ff] py-2 cursor-pointer"
+                            >
+                              <a
+                                href="#"
+                                class="flex items-center gap-4 rounded-lg"
+                                ><i class="fa-regular fa-circle text-[7px]"></i
+                                >Level 3.1</a
+                              >
+                            </div>
+                          </div>
+                        </details>
+                      </div>
+                    </details>
+                  </div>
+                </details>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 p-3 disabled:opacity-75"
+                >
+                  <i class="fas fa-universal-access"></i>
+                  Disabled
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-code-branch"></i> SubCaption
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-tag"></i> Chip
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-gear"></i> Outlined
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-4 hover:text-blue-600 hover:bg-sky-100 p-3 rounded-md"
+                >
+                  <i class="fas fa-question"></i> External Link
+                </a>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Logout Button -->
+          <div class="px-6 py-3">
+            <div
+              class="w-full h-16 flex items-center gap-3 bg-[#e8f7ff] p-2 rounded-lg"
+            >
+              <img
+                src="https://modernize-react.adminmart.com/assets/user-1-6d05e3ce.jpg"
+                alt="Profile"
+                class="w-12 h-12 rounded-full"
+              />
+              <div class="flex flex-col">
+                <p class="font-semibold">Mathew</p>
+                <p class="text-sm">Designer</p>
+              </div>
+              <button class="ml-2">
+                <i
+                  class="fas fa-power-off text-[#5d87ff] p-2 rounded-full hover:bg-[#5d87ff] hover:text-white"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="flex flex-col flex-grow">
+        <!-- Navbar -->
+        <header
+          class="bg-white text-[13.5px] py-1 px-7 flex justify-between items-center"
+        >
+          <div class="flex items-center">
+            <i
+              class="fa-solid fa-bars text-gray-700 hover:bg-sky-100 hover:text-blue-600 p-2 rounded-full cursor-pointer"
+            ></i>
+            <i
+              class="fa-solid fa-magnifying-glass text-gray-700 hover:bg-sky-100 hover:text-blue-600 p-3 rounded-full cursor-pointer"
+            ></i>
+            <h1
+              class="hover:bg-sky-100 hover:text-blue-600 px-3.5 py-1.5 rounded-lg cursor-pointer"
+            >
+              Apps
+            </h1>
+            <h1
+              class="hover:bg-sky-100 hover:text-blue-600 px-3.5 py-1.5 rounded-lg cursor-pointer"
+            >
+              Chat
+            </h1>
+            <h1
+              class="hover:bg-sky-100 hover:text-blue-600 px-3.5 py-1.5 rounded-lg cursor-pointer"
+            >
+              Calendar
+            </h1>
+            <h1
+              class="hover:bg-sky-100 hover:text-blue-600 px-3.5 py-1.5 rounded-lg cursor-pointer"
+            >
+              Email
+            </h1>
+          </div>
+          <div class="flex items-center gap-1">
+            <img
+              src="https://modernize-react.adminmart.com/assets/icon-flag-en-20a62c34.svg"
+              class="w-8 h-8 object-cover rounded-full hover:bg-sky-100 p-2"
+            />
+            <i
+              class="fa-solid fa-cart-shopping hover:bg-sky-100 hover:text-blue-600 p-3 rounded-full cursor-pointer"
+            ></i>
+            <i
+              class="fa-solid fa-moon hover:bg-sky-100 hover:text-blue-600 p-3 rounded-full cursor-pointer"
+            ></i>
+            <i
+              class="fa-solid fa-bell hover:bg-sky-100 hover:text-blue-600 p-3 rounded-full cursor-pointer"
+            ></i>
+            <img
+              src="https://modernize-react.adminmart.com/assets/user-1-6d05e3ce.jpg"
+              alt="Profile"
+              class="w-12 h-12 rounded-full hover:bg-blue-100 cursor-pointer p-2"
+            />
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow py-8 px-6 lg:mx-32 overflow-y-auto">
+          <!-- Tiles at the Top -->
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 mb-6"
+          >
+            <!-- Tile 1 -->
+            <div class="bg-[#ecf2ff] p-4 rounded-md text-center">
+              <div class="mb-2 flex items-center justify-center">
+                <img
+                  src="https://modernize-react.adminmart.com/assets/icon-user-male-ff0c3edd.svg"
+                  alt="Employees"
+                  class="w-[45px]"
+                />
+              </div>
+              <h2 class="text-sm font-semibold text-[#5d87ff]">Employees</h2>
+              <p class="text-xl font-bold text-[#5d87ff]">96</p>
+            </div>
+
+            <!-- Tile 2 -->
+            <div class="bg-[#fef5e5] p-4 rounded-md text-center">
+              <div class="mb-2 flex items-center justify-center">
+                <img
+                  src="https://modernize-react.adminmart.com/assets/icon-briefcase-5ac68925.svg"
+                  alt="Clients"
+                  class="w-[45px]"
+                />
+              </div>
+              <h2 class="text-sm font-semibold text-[#ffae1f]">Clients</h2>
+              <p class="text-xl font-bold text-[#ffae1f]">3,650</p>
+            </div>
+
+            <!-- Tile 3 -->
+            <div class="bg-[#e8f7ff] p-4 rounded-md text-center">
+              <div class="mb-2 flex items-center justify-center">
+                <img
+                  src="https://modernize-react.adminmart.com/assets/icon-mailbox-58a01fce.svg"
+                  alt="Projects"
+                  class="w-[45px]"
+                />
+              </div>
+              <h2 class="text-sm font-semibold text-[#49beff]">Projects</h2>
+              <p class="text-xl font-bold text-[#49beff]">356</p>
+            </div>
+
+            <!-- Tile 4 -->
+            <div class="bg-[#fdede8] p-4 rounded-md text-center">
+              <div class="mb-2 flex items-center justify-center">
+                <img
+                  src="https://modernize-react.adminmart.com/assets/icon-favorites-c75eec14.svg"
+                  alt="Events"
+                  class="w-[45px]"
+                />
+              </div>
+              <h2 class="text-sm font-semibold text-[#fa896b]">Events</h2>
+              <p class="text-xl font-bold text-[#fa896b]">696</p>
+            </div>
+
+            <!-- Tile 5 -->
+            <div class="bg-[#e6fffa] p-4 rounded-md text-center">
+              <div class="mb-2 flex items-center justify-center">
+                <img
+                  src="https://modernize-react.adminmart.com/assets/icon-speech-bubble-4432cbf3.svg"
+                  alt="Payroll"
+                  class="w-[45px]"
+                />
+              </div>
+              <h2 class="text-sm font-semibold text-[#13deb9]">Payroll</h2>
+              <p class="text-xl font-bold text-[#13deb9]">$96k</p>
+            </div>
+
+            <!-- Tile 6 -->
+            <div class="bg-[#ebf3fe] p-4 rounded-md text-center">
+              <div class="mb-2 flex items-center justify-center">
+                <img
+                  src="https://modernize-react.adminmart.com/assets/icon-connect-93bb1783.svg"
+                  alt="Reports"
+                  class="w-[45px]"
+                />
+              </div>
+              <h2 class="text-sm font-semibold text-[#539bff]">Reports</h2>
+              <p class="text-xl font-bold text-[#539bff]">59</p>
+            </div>
+          </div>
+
+          <!-- Dashboard Section -->
+          <div class="container mx-auto">
+            <!-- Revenue updates and metric container -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
+              <!-- Left Panel (Graph + Earnings & Expenses) -->
+              <div class="lg:col-span-2 bg-white p-6 rounded-md shadow">
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-6">
+                  <div class="leading-3">
+                    <h2 class="text-lg font-semibold">Revenue Updates</h2>
+                    <p class="text-sm text-gray-500">Overview of Profit</p>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-gray-500 text-sm">March 2024</span>
+                    <svg
+                      class="w-4 h-4 ml-2 text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Graph and metrics -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                  <!-- Graph Placeholder -->
+                  <div
+                    class="lg:col-span-2 h-64 bg-gray-100 rounded-md flex items-center justify-center"
+                  >
+                    <span class="text-gray-500">Graph Placeholder</span>
+                  </div>
+
+                  <!-- Metrics -->
+                  <div class="flex flex-col gap-5 ml-3">
+                    <div>
+                      <p class="text-2xl text-gray-800 font-bold">$63,489.50</p>
+                      <p class="text-gray-500">Total Earnings</p>
+                    </div>
+
+                    <div>
+                      <p class="text-gray-700">
+                        <span class="text-blue-500">Earnings this month</span
+                        ><br />
+                        <span class="font-semibold text-lg"> $48,820 </span>
+                      </p>
+                      <p class="text-gray-700 mt-1">
+                        <span class="text-blue-300">Expense this month</span
+                        ><br />
+                        <span class="font-semibold text-lg"> $26,498 </span>
+                      </p>
+                      <!-- View Full Report Button -->
+                      <div class="mt-6">
+                        <button
+                          class="w-full bg-[#5d87ff] text-[13.5px] text-white px-2 py-1.5 rounded-md shadow hover:bg-blue-600 focus:outline-none"
+                        >
+                          View Full Report
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Panel (Yearly and Monthly) -->
+              <div class="space-y-6">
+                <!-- Yearly Breakup Card -->
+                <div class="bg-white p-6 rounded-md shadow">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <p class="text-lg font-semibold">Yearly Breakup</p>
+                    </div>
+                  </div>
+                  <div class="flex justify-between">
+                    <div>
+                      <div class="flex flex-col gap-1 mt-4">
+                        <p class="text-2xl font-bold">$36,358</p>
+                        <div class="flex gap-2">
+                          <div
+                            class="bg-[#e6fffa] w-6 h-6 flex items-center justify-center rounded-full"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="icon icon-tabler icon-tabler-arrow-up-left"
+                              width="19"
+                              height="23"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                              stroke="#39B69A"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path
+                                stroke="none"
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              ></path>
+                              <line x1="7" y1="7" x2="17" y2="17"></line>
+                              <polyline points="16 7 7 7 7 16"></polyline>
+                            </svg>
+                          </div>
+                          <div>
+                            <span class="text-gray-900 text-sm font-semibold"
+                              >+9%</span
+                            >
+                            <span class="text-gray-500 text-sm ml-2"
+                              >last year</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-6">
+                        <p
+                          class="text-gray-500 text-sm flex items-center justify-center"
+                        >
+                          <span class="text-3xl text-[#5d87ff] leading-none"
+                            >•</span
+                          >
+                          <span class="ml-2">2025</span>
+                          <span
+                            class="text-3xl text-[#ecf2ff] leading-none ml-4"
+                            >•</span
+                          >
+                          <span class="ml-2">2024</span>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- Placeholder for Donut Chart -->
+                    <div
+                      class="h-20 w-20 mt-4 bg-gray-100 rounded-full flex items-center justify-center"
+                    >
+                      <span class="text-gray-500">Donut</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Monthly Earnings Card -->
+                <div class="bg-white p-6 rounded-md shadow">
+                  <div class="flex justify-between items-center">
+                    <p class="text-lg font-semibold">Monthly Earnings</p>
+                    <!-- Placeholder for Small Line Chart -->
+                    <div
+                      class="h-11 w-11 bg-[#49beff] rounded-full flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-currency-dollar"
+                        width="24"
+                        height="24"
+                        color="white"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          stroke="none"
+                          d="M0 0h24v24H0z"
+                          fill="none"
+                        ></path>
+                        <path
+                          d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"
+                        ></path>
+                        <path d="M12 3v3m0 12v3"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1 mt">
+                    <p class="text-2xl font-bold">$6,820</p>
+                    <div class="flex gap-2">
+                      <div
+                        class="bg-[#fdede8] w-6 h-6 flex items-center justify-center rounded-full"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-arrow-down-right"
+                          width="19"
+                          height="23"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="#FA896B"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          ></path>
+                          <line x1="7" y1="7" x2="17" y2="17"></line>
+                          <polyline points="17 8 17 17 8 17"></polyline>
+                        </svg>
+                      </div>
+                      <div>
+                        <span class="text-gray-900 text-sm font-semibold"
+                          >+9%</span
+                        >
+                        <span class="text-gray-500 text-sm ml-2"
+                          >last year</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Employee salary and best selling products container  -->
+            <div class="container mx-auto mb-6">
+              <!-- Main container -->
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                <!-- Employee Salary box -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                  <!-- Header -->
+                  <h2 class="text-lg font-semibold">Employee Salary</h2>
+                  <p class="text-sm text-gray-500">Every month</p>
+
+                  <!-- Graph Placeholder -->
+                  <div
+                    class="h-64 bg-gray-100 rounded-lg flex items-center justify-center my-6"
+                  >
+                    <span class="text-gray-500">Graph Placeholder</span>
+                  </div>
+
+                  <!-- Salary and Profit -->
+                  <div class="flex items-center justify-between gap-4">
+                    <div class="flex gap-3">
+                      <div
+                        class="w-9 h-9 flex items-center justify-center bg-[#ecf2ff] rounded-md"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-grid-dots"
+                          width="20"
+                          height="22"
+                          color="#5d87ff"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          ></path>
+                          <circle cx="5" cy="5" r="1"></circle>
+                          <circle cx="12" cy="5" r="1"></circle>
+                          <circle cx="19" cy="5" r="1"></circle>
+                          <circle cx="5" cy="12" r="1"></circle>
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="19" cy="12" r="1"></circle>
+                          <circle cx="5" cy="19" r="1"></circle>
+                          <circle cx="12" cy="19" r="1"></circle>
+                          <circle cx="19" cy="19" r="1"></circle>
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="text-gray-500">Salary</p>
+                        <p class="text-base font-semibold">$36,358</p>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <div
+                        class="w-9 h-9 flex items-center justify-center bg-[#eaeff4] rounded-md"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-grid-dots"
+                          width="20"
+                          height="22"
+                          color="#7c8fac"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          ></path>
+                          <circle cx="5" cy="5" r="1"></circle>
+                          <circle cx="12" cy="5" r="1"></circle>
+                          <circle cx="19" cy="5" r="1"></circle>
+                          <circle cx="5" cy="12" r="1"></circle>
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="19" cy="12" r="1"></circle>
+                          <circle cx="5" cy="19" r="1"></circle>
+                          <circle cx="12" cy="19" r="1"></circle>
+                          <circle cx="19" cy="19" r="1"></circle>
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="text-gray-500">Profit</p>
+                        <p class="text-base font-semibold">$5,296</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-5">
+                  <!-- Customers and Projects boxes -->
+                  <div class="flex flex-col lg:flex-row gap-5">
+                    <!-- Customers -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                      <p class="text-sm text-gray-500">Customers</p>
+                      <p class="text-xl font-semibold">36,358</p>
+                      <div class="flex gap-2 mt-2">
+                        <div
+                          class="bg-[#fdede8] w-6 h-6 flex items-center justify-center rounded-full"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-arrow-down-right"
+                            width="19"
+                            height="23"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="#FA896B"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              stroke="none"
+                              d="M0 0h24v24H0z"
+                              fill="none"
+                            ></path>
+                            <line x1="7" y1="7" x2="17" y2="17"></line>
+                            <polyline points="17 8 17 17 8 17"></polyline>
+                          </svg>
+                        </div>
+                        <div>
+                          <span class="text-gray-900 text-sm font-semibold"
+                            >+9%</span
+                          >
+                        </div>
+                      </div>
+                      <!-- Line Chart Placeholder -->
+                      <div
+                        class="h-16 p-5 bg-gray-100 rounded-lg flex items-center justify-center mt-4"
+                      >
+                        <span class="text-gray-500">Line Chart</span>
+                      </div>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                      <p class="text-sm text-gray-500">Projects</p>
+                      <p class="text-xl font-semibold">78,298</p>
+                      <div class="flex gap-2 mt-2">
+                        <div
+                          class="bg-[#e6fffa] w-6 h-6 flex items-center justify-center rounded-full"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-arrow-up-left"
+                            width="19"
+                            height="23"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="#39B69A"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              stroke="none"
+                              d="M0 0h24v24H0z"
+                              fill="none"
+                            ></path>
+                            <line x1="7" y1="7" x2="17" y2="17"></line>
+                            <polyline points="16 7 7 7 7 16"></polyline>
+                          </svg>
+                        </div>
+                        <div>
+                          <span class="text-gray-900 text-sm font-semibold"
+                            >+9%</span
+                          >
+                        </div>
+                      </div>
+                      <!-- Bar Chart Placeholder -->
+                      <div
+                        class="h-16 p-5 bg-gray-100 rounded-lg flex items-center justify-center mt-4"
+                      >
+                        <span class="text-gray-500">Bar Chart</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Announcement box -->
+                  <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex flex-row items-center">
+                      <div
+                        class="h-16 w-16 min-w-16 bg-gray-100 rounded-lg flex items-center justify-center"
+                      >
+                        <img
+                          src="https://modernize-react.adminmart.com/assets/user-1-6d05e3ce.jpg"
+                          alt="Avatar"
+                          class="rounded-md"
+                        />
+                      </div>
+                      <div class="ml-4">
+                        <p class="text-lg font-semibold">
+                          Super awesome, Vue coming soon!
+                        </p>
+                        <p class="text-sm text-gray-500">22 March, 2025</p>
+                      </div>
+                    </div>
+
+                    <!-- Team Avatars -->
+                    <div class="mt-9 flex items-center justify-between">
+                      <div class="flex">
+                        <div
+                          class="h-10 w-10 border border-2 border-white rounded-full flex items-center justify-center"
+                        >
+                          <img
+                            src="https://modernize-react.adminmart.com/assets/user-2-8a001bcb.jpg"
+                            alt="A1"
+                            class="rounded-full bg-white"
+                          />
+                        </div>
+                        <div
+                          class="h-10 w-10 -ml-2 border border-2 border-white rounded-full flex items-center justify-center"
+                        >
+                          <img
+                            src="https://modernize-react.adminmart.com/assets/user-3-94da4ac7.jpg
+                          "
+                            alt="A1"
+                            class="rounded-full bg-white"
+                          />
+                        </div>
+                        <div
+                          class="h-10 w-10 -ml-2 border border-2 border-white rounded-full flex items-center justify-center"
+                        >
+                          <img
+                            src="https://modernize-react.adminmart.com/assets/user-4-a9b2728d.jpg"
+                            alt="A1"
+                            class="rounded-full bg-white"
+                          />
+                        </div>
+                        <div
+                          class="h-10 w-10 -ml-2 border border-2 border-white rounded-full flex items-center justify-center"
+                        >
+                          <img
+                            src="https://modernize-react.adminmart.com/assets/user-5-77f60b86.jpg
+                          "
+                            alt="A1"
+                            class="rounded-full bg-white"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="w-10 h-10 bg-[#ecf2ff] rounded-md flex items-center justify-center"
+                        >
+                          <p class="text-[#5d87ff]">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="icon icon-tabler icon-tabler-message-2"
+                              width="22"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                              stroke="currentColor"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path
+                                stroke="none"
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              ></path>
+                              <path
+                                d="M12 20l-3 -3h-2a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-2l-3 3"
+                              ></path>
+                              <line x1="8" y1="9" x2="16" y2="9"></line>
+                              <line x1="8" y1="13" x2="14" y2="13"></line>
+                            </svg>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Best selling products box -->
+                <div class="bg-blue-500 p-6 rounded-lg shadow-md text-white">
+                  <!-- Header -->
+                  <h2 class="text-xl font-bold">Best selling products</h2>
+                  <p class="text-white">Overview 2024</p>
+
+                  <!-- Image Placeholder -->
+                  <div
+                    class="h-32 bg-gray-100 rounded-lg flex items-center justify-center my-6"
+                  >
+                    <span class="text-gray-500">Image Placeholder</span>
+                  </div>
+
+                  <!-- Products -->
+                  <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                      <p>MaterialPro</p>
+                      <p>$23,568</p>
+                    </div>
+                    <div class="h-2 bg-white rounded-full overflow-hidden">
+                      <div class="h-full bg-blue-700" style="width: 55%"></div>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                      <p>Flexy Admin</p>
+                      <p>$23,568</p>
+                    </div>
+                    <div class="h-2 bg-white rounded-full overflow-hidden">
+                      <div class="h-full bg-blue-300" style="width: 20%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Weekly status and Top projects container -->
+            <div class="container mx-auto">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                <!-- Weekly Stats Card -->
+                <div class="col-span-1 bg-white p-6 rounded-lg shadow-md">
+                  <h2 class="text-lg font-semibold">Weekly Stats</h2>
+                  <p class="text-sm text-gray-500">Average sales</p>
+
+                  <!-- Line Chart Placeholder -->
+                  <div
+                    class="h-40 bg-gray-100 rounded-lg flex items-center justify-center mt-6"
+                  >
+                    <span class="text-gray-500">Line Chart Placeholder</span>
+                  </div>
+
+                  <!-- Stats List -->
+                  <div class="mt-6 space-y-4">
+                    <div class="flex items-center">
+                      <div
+                        class="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center"
+                      >
+                        <span class="text-blue-600">##</span>
+                      </div>
+                      <div class="ml-4">
+                        <p class="font-semibold">Top Sales</p>
+                        <p class="text-gray-500">Johnathan Doe</p>
+                      </div>
+                      <div class="ml-auto text-blue-600 font-bold">+68</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div
+                        class="h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center"
+                      >
+                        <span class="text-green-600">##</span>
+                      </div>
+                      <div class="ml-4">
+                        <p class="font-semibold">Best Seller</p>
+                        <p class="text-gray-500">Footware</p>
+                      </div>
+                      <div class="ml-auto text-green-600 font-bold">+45</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div
+                        class="h-10 w-10 bg-red-100 rounded-lg flex items-center justify-center"
+                      >
+                        <span class="text-red-600">##</span>
+                      </div>
+                      <div class="ml-4">
+                        <p class="font-semibold">Most Commented</p>
+                        <p class="text-gray-500">Fashionware</p>
+                      </div>
+                      <div class="ml-auto text-red-600 font-bold">+14</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Top Projects Card -->
+                <div class="col-span-2 bg-white p-6 rounded-lg shadow-md">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h2 class="text-lg font-semibold">Top Projects</h2>
+                      <p class="text-sm text-gray-500">Best Products</p>
+                    </div>
+                    <div class="bg-gray-100 p-2 rounded-lg">
+                      <span>March 2025</span>
+                    </div>
+                  </div>
+
+                  <!-- Projects Table -->
+                  <div class="mt-6">
+                    <table class="w-full text-left">
+                      <thead>
+                        <tr class="text-xs text-gray-500">
+                          <th class="pb-2 pt-2 font-semibold">Assigned</th>
+                          <th class="pb-2 pt-2 font-semibold">Project</th>
+                          <th class="pb-2 pt-2 font-semibold">Priority</th>
+                          <th class="pb-2 pt-2 font-semibold">Budget</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-100">
+                        <tr class="h-16">
+                          <td class="py-4 flex items-center space-x-4">
+                            <img
+                              src="https://modernize-react.adminmart.com/assets/user-2-8a001bcb.jpg"
+                              alt="A1"
+                              class="h-10 w-10 rounded-full object-cover"
+                            />
+                            <div>
+                              <p class="font-semibold text-gray-900">
+                                Sunil Joshi
+                              </p>
+                              <p class="text-sm text-gray-500">Web Designer</p>
+                            </div>
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">
+                            Elite Admin
+                          </td>
+                          <td class="py-4 text-sm">
+                            <span
+                              class="text-sm font-medium text-green-600 bg-green-100 px-2 py-1 rounded-lg"
+                              >Low</span
+                            >
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">$3.9k</td>
+                        </tr>
+
+                        <tr class="h-16">
+                          <td class="py-4 flex items-center space-x-4">
+                            <img
+                              src="https://modernize-react.adminmart.com/assets/user-3-94da4ac7.jpg"
+                              alt="A1"
+                              class="h-10 w-10 rounded-full object-cover"
+                            />
+                            <div>
+                              <p class="font-semibold text-gray-900">
+                                John Deo
+                              </p>
+                              <p class="text-sm text-gray-500">Web Developer</p>
+                            </div>
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">
+                            Flexy Admin
+                          </td>
+                          <td class="py-4 text-sm">
+                            <span
+                              class="text-sm font-medium text-yellow-600 bg-yellow-100 px-2 py-1 rounded-lg"
+                              >Medium</span
+                            >
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">$24.5k</td>
+                        </tr>
+
+                        <tr class="h-16">
+                          <td class="py-4 flex items-center space-x-4">
+                            <img
+                              src="https://modernize-react.adminmart.com/assets/user-4-a9b2728d.jpg"
+                              alt="A1"
+                              class="h-10 w-10 rounded-full object-cover"
+                            />
+                            <div>
+                              <p class="font-semibold text-gray-900">
+                                Mathew Anderson
+                              </p>
+                              <p class="text-sm text-gray-500">Web Manager</p>
+                            </div>
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">
+                            Material Pro
+                          </td>
+                          <td class="py-4 text-sm">
+                            <span
+                              class="text-sm font-medium text-red-600 bg-red-100 px-2 py-1 rounded-lg"
+                              >High</span
+                            >
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">$12.8k</td>
+                        </tr>
+
+                        <tr class="h-16">
+                          <td class="py-4 flex items-center space-x-4">
+                            <img
+                              src="https://modernize-react.adminmart.com/assets/user-5-77f60b86.jpg"
+                              alt="A1"
+                              class="h-10 w-10 rounded-full object-cover"
+                            />
+                            <div>
+                              <p class="font-semibold text-gray-900">
+                                Yuvraj Sheth
+                              </p>
+                              <p class="text-sm text-gray-500">
+                                Project Manager
+                              </p>
+                            </div>
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">
+                            Xtreme Admin
+                          </td>
+                          <td class="py-4 text-sm">
+                            <span
+                              class="text-sm font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded-lg"
+                              >Very High</span
+                            >
+                          </td>
+                          <td class="py-4 text-sm text-gray-900">$2.4k</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const toggleSidebar = document.getElementById("toggleSidebar");
+
+      toggleSidebar.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+      });
+    </script>
+  </body>
+</html>
