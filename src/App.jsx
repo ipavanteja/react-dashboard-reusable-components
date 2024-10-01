@@ -1,10 +1,5 @@
 import React from "react";
-import Sidebar from "./components/ui/Sidebar";
-import Navbar from "./components/ui/Navbar";
-import Tile from "./components/ui/Tile";
-import SelectDropdown from "./components/ui/SelectDropdown";
-import DonutChart from "./components/ui/charts/DonutChart";
-import LineChart from "./components/ui/charts/LineChart";
+
 import {
   ArrowDownRight,
   ArrowUpLeft,
@@ -12,6 +7,13 @@ import {
   Grip,
   MessageSquareMore,
 } from "lucide-react";
+
+import Sidebar from "./components/ui/Sidebar";
+import Navbar from "./components/ui/Navbar";
+import Tile from "./components/ui/Tile";
+import SelectDropdown from "./components/ui/SelectDropdown";
+import DonutChart from "./components/ui/charts/DonutChart";
+import LineChart from "./components/ui/charts/LineChart";
 import CustomBarChart from "./components/ui/charts/CustomBarChart";
 import BarChart from "./components/ui/charts/BarChart";
 import ProjectsTable from "./components/ui/ProjectsTable";
@@ -288,7 +290,7 @@ const App = () => {
                     <h2 className="text-lg font-semibold">Employee Salary</h2>
                     <p className="text-sm text-gray-500">Every month</p>
 
-                    {/* Graph Placeholder */}
+                    {/* Graph */}
                     <div className="my-6">
                       <BarChart
                         labels={["Apr", "May", "June", "July", "Aug", "Sept"]}
@@ -343,28 +345,7 @@ const App = () => {
                           <p className="text-sm text-gray-500">Customers</p>
                           <p className="text-xl font-semibold">36,358</p>
                           <div className="flex gap-2 mt-2">
-                            <div className="bg-[#fdede8] w-6 h-6 flex items-center justify-center rounded-full">
-                              {/* <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon icon-tabler icon-tabler-arrow-down-right"
-                            width="19"
-                            height="23"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="#FA896B"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path
-                              stroke="none"
-                              d="M0 0h24v24H0z"
-                              fill="none"
-                            ></path>
-                            <line x1="7" y1="7" x2="17" y2="17"></line>
-                            <polyline points="17 8 17 17 8 17"></polyline>
-                          </svg> */}
-                            </div>
+                            <div className="bg-[#fdede8] w-6 h-6 flex items-center justify-center rounded-full"></div>
                             <div>
                               <span className="text-gray-900 text-sm font-semibold">
                                 +9%
@@ -389,28 +370,7 @@ const App = () => {
                           <p className="text-sm text-gray-500">Projects</p>
                           <p className="text-xl font-semibold">78,298</p>
                           <div className="flex gap-2 mt-2">
-                            <div className="bg-[#e6fffa] w-6 h-6 flex items-center justify-center rounded-full">
-                              {/* <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon icon-tabler icon-tabler-arrow-up-left"
-                            width="19"
-                            height="23"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="#39B69A"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path
-                              stroke="none"
-                              d="M0 0h24v24H0z"
-                              fill="none"
-                            ></path>
-                            <line x1="7" y1="7" x2="17" y2="17"></line>
-                            <polyline points="16 7 7 7 7 16"></polyline>
-                          </svg> */}
-                            </div>
+                            <div className="bg-[#e6fffa] w-6 h-6 flex items-center justify-center rounded-full"></div>
                             <div>
                               <span className="text-gray-900 text-sm font-semibold">
                                 +9%
@@ -418,6 +378,7 @@ const App = () => {
                             </div>
                           </div>
                         </div>
+
                         {/* <!-- Bar Chart Placeholder --> */}
                         <div className="">
                           <BarChart
@@ -506,7 +467,7 @@ const App = () => {
                     <p className="text-white">Overview 2024</p>
 
                     {/* Image Placeholder --> */}
-                    <div className="h-32 pt-12 rounded-lg flex items-center justify-center my-6">
+                    <div className="h-32 pt-6 rounded-lg flex items-center justify-center my-6">
                       <img
                         src="https://modernize-react.adminmart.com/assets/piggy-84077fef.png"
                         alt="image"
@@ -514,7 +475,7 @@ const App = () => {
                     </div>
 
                     {/* Products --> */}
-                    <div className="bg-white space-y-4 mt-12 rounded-lg py-5 px-5">
+                    <div className="bg-white space-y-4 mt-6 rounded-lg py-5 px-5">
                       <div className="flex items-center justify-between">
                         <div className="flex flex-col text-black">
                           <p>MaterialPro</p>
@@ -560,7 +521,7 @@ const App = () => {
               <div className="container mx-auto mb-6">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                   {/* Weekly Stats Card */}
-                  <div className="col-span-1 bg-white p-6 rounded-lg shadow-md">
+                  <div className="col-span-1 bg-white p-6 rounded-lg shadow">
                     <h2 className="text-lg font-semibold">Weekly Stats</h2>
                     <p className="text-sm text-gray-500">Average sales</p>
 
@@ -616,7 +577,7 @@ const App = () => {
                   </div>
 
                   {/* Top Projects Card */}
-                  <div className="col-span-2 bg-white p-6 rounded-lg shadow-md">
+                  <div className="col-span-2 bg-white p-6 rounded-lg shadow">
                     <div className="flex justify-between items-center">
                       <div>
                         <h2 className="text-lg font-semibold">Top Projects</h2>

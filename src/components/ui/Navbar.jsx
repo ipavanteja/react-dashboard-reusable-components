@@ -3,11 +3,39 @@ import { BellRing, Menu, Moon, ShoppingCart } from "lucide-react";
 import { DataContext } from "../contexts/DataProvider";
 import SearchButtonModal from "./SearchButtonModel";
 import AppsDropdown from "./AppsDropdown";
+import NotificationDropdown from "./NotificationDropdown";
 
 const Navbar = () => {
   const { sidebarOpen, setSidebarOpen, smallSidebarOpen, setSmallSidebarOpen } =
     useContext(DataContext);
   const [isLgScreen, setIsLgScreen] = useState(false);
+
+  const notifications = [
+    {
+      avatar:
+        "https://modernize-react.adminmart.com/assets/user-2-8a001bcb.jpg",
+      title: "Roman Joined the Team!",
+      description: "Congratulate him",
+    },
+    {
+      avatar:
+        "https://modernize-react.adminmart.com/assets/user-3-94da4ac7.jpg",
+      title: "New message received",
+      description: "Salma sent you a new message",
+    },
+    {
+      avatar:
+        "https://modernize-react.adminmart.com/assets/user-4-a9b2728d.jpg",
+      title: "New Payment received",
+      description: "Check your earnings",
+    },
+    {
+      avatar:
+        "https://modernize-react.adminmart.com/assets/user-5-77f60b86.jpg",
+      title: "Jolly completed tasks",
+      description: "Assign her new tasks",
+    },
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,11 +66,11 @@ const Navbar = () => {
     <header className="bg-white text-[13.5px] py-2 px-7 flex justify-between items-center">
       {/* Left Section - Apps, Chat, Calendar, Email */}
       <div className="flex items-center">
-        <div className="hover:bg-sky-100 p-2   rounded-full cursor-pointer">
-          <Menu
-            className="w-4 h-4 text-gray-700 hover:text-blue-600"
-            onClick={handleClick}
-          />
+        <div
+          className="hover:bg-sky-100 p-2   rounded-full cursor-pointer"
+          onClick={handleClick}
+        >
+          <Menu className="w-4 h-4 text-gray-700 hover:text-blue-600" />
         </div>
 
         {/* Search Icon */}
@@ -75,7 +103,6 @@ const Navbar = () => {
           className="w-8 h-8 object-cover rounded-full hover:bg-sky-100 p-2 cursor-pointer"
           alt="English Flag"
         />
-
         {/* Shopping Cart Icon */}
         <div className="hover:bg-sky-100 p-3 rounded-full cursor-pointer">
           <ShoppingCart className="w-4 h-4 text-gray-700 hover:text-blue-600" />
@@ -85,9 +112,10 @@ const Navbar = () => {
           <Moon className="w-4 h-4 text-gray-700 hover:text-blue-600" />
         </div>
         {/* Bell Icon */}
-        <div className="hover:bg-sky-100 p-3 rounded-full cursor-pointer">
+        {/* <div className="hover:bg-sky-100 p-3 rounded-full cursor-pointer">
           <BellRing className="w-4 h-4 text-gray-700 hover:text-blue-600" />
-        </div>
+        </div> */}
+        <NotificationDropdown notifications={notifications} unreadCount={5} />
         {/* Profile Image */}
         <img
           src="https://modernize-react.adminmart.com/assets/user-1-6d05e3ce.jpg"

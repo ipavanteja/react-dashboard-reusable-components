@@ -21,6 +21,7 @@ import {
   Mail,
   Ticket,
 } from "lucide-react";
+import LogoutButton from "./LogoutButton";
 
 const Sidebar = () => {
   const { sidebarOpen, setSidebarOpen, smallSidebarOpen, setSmallSidebarOpen } =
@@ -75,7 +76,7 @@ const Sidebar = () => {
       >
         {/* Sidebar */}
         <div
-          className={`fixed inset-y-0 left-0 transform transition-transform duration-300 ease-in-out z-50 bg-white border-r border-gray-200
+          className={`fixed inset-y-0 left-0 transform transition-transform duration-300 ease-in-out z-50 lg:z-0 bg-white border-r border-gray-200
       ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
       ${smallSidebarOpen ? "lg:w-[243px]" : "lg:w-[78px]"} 
        lg:translate-x-0`}
@@ -177,23 +178,23 @@ const Sidebar = () => {
               </MenuSection>
               {/* Pages Section */}
             </nav>
+            {/* Logout Button */}
+            <LogoutButton
+              user={{
+                name: "Mathew",
+                role: "Designer",
+                profilePic:
+                  "https://modernize-react.adminmart.com/assets/user-1-6d05e3ce.jpg",
+              }}
+              onLogout={{}}
+            />
           </div>
         </div>
-
-        {/* Sidebar toggle button (visible on mobile) */}
-        {/* <div className="lg:hidden fixed top-4 left-4 z-50">
-          <button
-            onClick={toggleSidebar}
-            className="p-2 bg-blue-500 text-white rounded-md focus:outline-none"
-          >
-            {sidebarOpen ? "Close" : "Menu"}
-          </button>
-        </div> */}
 
         {/* Overlay (when sidebar is open) */}
         {sidebarOpen && (
           <div
-            className="fixed inset-0 bg-black opacity-50 z-40"
+            className="fixed inset-0 bg-black opacity-50"
             onClick={toggleSidebar}
           ></div>
         )}
