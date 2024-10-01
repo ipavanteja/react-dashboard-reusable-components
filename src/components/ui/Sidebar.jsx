@@ -69,19 +69,22 @@ const Sidebar = () => {
       </style>
 
       <div
-        className={`${
-          smallSidebarOpen ? "w-[243px]" : "w-[78px]"
-        } lg:flex h-full`}
+        className={`h-full transition-all duration-300 ease-in-out ${
+          smallSidebarOpen ? "lg:w-[243px]" : "lg:w-[78px]"
+        }`}
       >
         {/* Sidebar */}
         <div
-          className={`fixed inset-y-0 left-0 transform lg:translate-x-0 ${
-            sidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } ${
-            smallSidebarOpen ? "w-[243px]" : "w-[78px]"
-          } w-[243px] h-full bg-white border-r border-gray-200 transition-transform duration-300 ease-in-out z-50`}
+          className={`fixed inset-y-0 left-0 transform transition-transform duration-300 ease-in-out z-50 bg-white border-r border-gray-200
+      ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
+      ${smallSidebarOpen ? "lg:w-[243px]" : "lg:w-[78px]"} 
+       lg:translate-x-0`}
         >
-          <div className="flex flex-col h-full">
+          <div
+            className="flex flex-col h-full"
+            // onMouseEnter={handleSmallSidebar}
+            // onMouseLeave={handleSmallSidebar}
+          >
             <Logo />
             <nav className="scrollbar flex-grow overflow-y-auto">
               {/* Home Section */}
@@ -178,14 +181,14 @@ const Sidebar = () => {
         </div>
 
         {/* Sidebar toggle button (visible on mobile) */}
-        <div className="lg:hidden fixed top-4 left-4 z-50">
+        {/* <div className="lg:hidden fixed top-4 left-4 z-50">
           <button
             onClick={toggleSidebar}
             className="p-2 bg-blue-500 text-white rounded-md focus:outline-none"
           >
             {sidebarOpen ? "Close" : "Menu"}
           </button>
-        </div>
+        </div> */}
 
         {/* Overlay (when sidebar is open) */}
         {sidebarOpen && (

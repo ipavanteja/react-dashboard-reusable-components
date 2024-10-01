@@ -5,11 +5,62 @@ import Tile from "./components/ui/Tile";
 import SelectDropdown from "./components/ui/SelectDropdown";
 import DonutChart from "./components/ui/charts/DonutChart";
 import LineChart from "./components/ui/charts/LineChart";
-import { ArrowDownRight, ArrowUpLeft, DollarSign, Grip } from "lucide-react";
+import {
+  ArrowDownRight,
+  ArrowUpLeft,
+  DollarSign,
+  Grip,
+  MessageSquareMore,
+} from "lucide-react";
 import CustomBarChart from "./components/ui/charts/CustomBarChart";
 import BarChart from "./components/ui/charts/BarChart";
+import ProjectsTable from "./components/ui/ProjectsTable";
+import Button from "./components/ui/Button";
 
 const App = () => {
+  const projects = [
+    {
+      assignedImage:
+        "https://modernize-react.adminmart.com/assets/user-2-8a001bcb.jpg",
+      assignedName: "Sunil Joshi",
+      assignedRole: "Web Designer",
+      projectName: "Elite Admin",
+      priorityLabel: "Low",
+      priorityColor: "green",
+      budget: "$3.9k",
+    },
+    {
+      assignedImage:
+        "https://modernize-react.adminmart.com/assets/user-3-94da4ac7.jpg",
+      assignedName: "John Deo",
+      assignedRole: "Web Developer",
+      projectName: "Flexy Admin",
+      priorityLabel: "Medium",
+      priorityColor: "yellow",
+      budget: "$24.5k",
+    },
+    {
+      assignedImage:
+        "https://modernize-react.adminmart.com/assets/user-4-a9b2728d.jpg",
+      assignedName: "Mathew Anderson",
+      assignedRole: "Web Manager",
+      projectName: "Material Pro",
+      priorityLabel: "High",
+      priorityColor: "red",
+      budget: "$12.8k",
+    },
+    {
+      assignedImage:
+        "https://modernize-react.adminmart.com/assets/user-5-77f60b86.jpg",
+      assignedName: "Yuvraj Sheth",
+      assignedRole: "Project Manager",
+      projectName: "Xtreme Admin",
+      priorityLabel: "Very High",
+      priorityColor: "blue",
+      budget: "$2.4k",
+    },
+  ];
+
   return (
     <>
       <div className="flex h-screen">
@@ -25,7 +76,7 @@ const App = () => {
           </div>
 
           {/* Main Content */}
-          <main className="flex-grow py-8 px-6 lg:mx-32 overflow-y-auto">
+          <main className="flex-grow py-8 px-6 sm:mx-32 lg:mx-28 overflow-y-auto">
             {/* Tiles Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 mb-6">
               <Tile
@@ -133,9 +184,7 @@ const App = () => {
                         </p>
                         {/* View Full Report Button */}
                         <div className="mt-6">
-                          <button className="w-full bg-[#5d87ff] text-[13.5px] text-white px-2 py-1.5 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                            View Full Report
-                          </button>
+                          <Button label="View Full Report" />
                         </div>
                       </div>
                     </div>
@@ -245,6 +294,17 @@ const App = () => {
                         labels={["Apr", "May", "June", "July", "Aug", "Sept"]}
                         dataSets={[20, 15, 30, 25, 10, 15]}
                         borderThickness={20}
+                        backgroundColor={[
+                          "#f2f6fad9",
+                          "#f2f6fad9",
+                          "#5d87ffd9",
+                          "#f2f6fad9",
+                          "#f2f6fad9",
+                          "#f2f6fad9",
+                        ]}
+                        borderRadius={5}
+                        categoryPercentage={{}}
+                        barPercentage={{}}
                         width={"full"}
                         height={64}
                       />
@@ -362,10 +422,14 @@ const App = () => {
                         <div className="">
                           <BarChart
                             labels={["", "", "", "", "", "", "", "", ""]}
-                            dataSets={[20, 15, 30, 25, 10, 15, 25, 10, 15]}
+                            dataSets={[4, 10, 9, 7, 9, 10, 11, 8, 10]}
                             borderThickness={4}
-                            width={16}
-                            height={10}
+                            backgroundColor={"#5d87ffd9"}
+                            borderRadius={10}
+                            categoryPercentage={0.7}
+                            barPercentage={0.8}
+                            width={36}
+                            height={24}
                           />
                         </div>
                       </div>
@@ -394,14 +458,14 @@ const App = () => {
                       {/* <!-- Team Avatars --> */}
                       <div className="mt-9 flex items-center justify-between">
                         <div className="flex">
-                          <div className="h-10 w-10 border border-2 border-white rounded-full flex items-center justify-center">
+                          <div className="h-10 w-10 border-2 border-white rounded-full flex items-center justify-center">
                             <img
                               src="https://modernize-react.adminmart.com/assets/user-2-8a001bcb.jpg"
                               alt="A1"
                               className="rounded-full bg-white"
                             />
                           </div>
-                          <div className="h-10 w-10 -ml-2 border border-2 border-white rounded-full flex items-center justify-center">
+                          <div className="h-10 w-10 -ml-2 border-2 border-white rounded-full flex items-center justify-center">
                             <img
                               src="https://modernize-react.adminmart.com/assets/user-3-94da4ac7.jpg
                           "
@@ -409,14 +473,14 @@ const App = () => {
                               className="rounded-full bg-white"
                             />
                           </div>
-                          <div className="h-10 w-10 -ml-2 border border-2 border-white rounded-full flex items-center justify-center">
+                          <div className="h-10 w-10 -ml-2 border-2 border-white rounded-full flex items-center justify-center">
                             <img
                               src="https://modernize-react.adminmart.com/assets/user-4-a9b2728d.jpg"
                               alt="A1"
                               className="rounded-full bg-white"
                             />
                           </div>
-                          <div className="h-10 w-10 -ml-2 border border-2 border-white rounded-full flex items-center justify-center">
+                          <div className="h-10 w-10 -ml-2 border-2 border-white rounded-full flex items-center justify-center">
                             <img
                               src="https://modernize-react.adminmart.com/assets/user-5-77f60b86.jpg
                           "
@@ -425,37 +489,148 @@ const App = () => {
                             />
                           </div>
                         </div>
-                        <div>
-                          <div className="w-10 h-10 bg-[#ecf2ff] rounded-md flex items-center justify-center">
-                            <p className="text-[#5d87ff]">
-                              {/* <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="icon icon-tabler icon-tabler-message-2"
-                              width="22"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              stroke-width="2"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path
-                                stroke="none"
-                                d="M0 0h24v24H0z"
-                                fill="none"
-                              ></path>
-                              <path
-                                d="M12 20l-3 -3h-2a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-2l-3 3"
-                              ></path>
-                              <line x1="8" y1="9" x2="16" y2="9"></line>
-                              <line x1="8" y1="13" x2="14" y2="13"></line>
-                            </svg> */}
-                            </p>
-                          </div>
+
+                        <div className="w-10 h-10 bg-[#ecf2ff] rounded-md flex items-center justify-center cursor-pointer">
+                          <p className="text-[#5d87ff]">
+                            <MessageSquareMore className="w-5 h-5" />
+                          </p>
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Best selling products box */}
+                  <div className="bg-[#5d87ff] p-6 rounded-lg shadow-md text-white">
+                    {/* Header --> */}
+                    <h2 className="text-xl font-bold">Best selling products</h2>
+                    <p className="text-white">Overview 2024</p>
+
+                    {/* Image Placeholder --> */}
+                    <div className="h-32 pt-12 rounded-lg flex items-center justify-center my-6">
+                      <img
+                        src="https://modernize-react.adminmart.com/assets/piggy-84077fef.png"
+                        alt="image"
+                      />
+                    </div>
+
+                    {/* Products --> */}
+                    <div className="bg-white space-y-4 mt-12 rounded-lg py-5 px-5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex flex-col text-black">
+                          <p>MaterialPro</p>
+                          <p className="text-sm">$23,568</p>
+                        </div>
+                        <div className="">
+                          <p className="w-12 h-7 text-sm text-[#5d87ff] bg-[#ecf2ff] rounded-md p-2 flex items-center justify-center">
+                            55%
+                          </p>
+                        </div>
+                      </div>
+                      <div className="h-1 bg-gray-300 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-[#5d87ff]"
+                          style={{ width: "55%" }}
+                        ></div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex flex-col text-black">
+                          <p>Flexy Admin</p>
+                          <p className="text-sm">$23,568</p>
+                        </div>
+                        <div className="">
+                          <p className="w-12 h-7 text-sm text-[#49beff] bg-[#ecf2ff] rounded-md p-2 flex items-center justify-center">
+                            20%
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="h-1 bg-gray-300 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-[#49beff]"
+                          style={{ width: "20%" }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Weekly status and Top projects container */}
+              <div className="container mx-auto mb-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                  {/* Weekly Stats Card */}
+                  <div className="col-span-1 bg-white p-6 rounded-lg shadow-md">
+                    <h2 className="text-lg font-semibold">Weekly Stats</h2>
+                    <p className="text-sm text-gray-500">Average sales</p>
+
+                    {/* Line Chart Placeholder --> */}
+                    <div className=" mt-6">
+                      <LineChart
+                        labels={["", "", "", "", ""]}
+                        dataSet={[5, 15, 5, 10, 5]}
+                        width={150}
+                        height={80}
+                      />
+                    </div>
+
+                    {/* Stats List --> */}
+                    <div className="mt-6 space-y-4">
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                          <span className="text-blue-600">##</span>
+                        </div>
+                        <div className="ml-4">
+                          <p className="font-semibold">Top Sales</p>
+                          <p className="text-gray-500">Johnathan Doe</p>
+                        </div>
+                        <div className="ml-auto text-blue-600 font-bold">
+                          +68
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center">
+                          <span className="text-green-600">##</span>
+                        </div>
+                        <div className="ml-4">
+                          <p className="font-semibold">Best Seller</p>
+                          <p className="text-gray-500">Footware</p>
+                        </div>
+                        <div className="ml-auto text-green-600 font-bold">
+                          +45
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 bg-red-100 rounded-lg flex items-center justify-center">
+                          <span className="text-red-600">##</span>
+                        </div>
+                        <div className="ml-4">
+                          <p className="font-semibold">Most Commented</p>
+                          <p className="text-gray-500">Fashionware</p>
+                        </div>
+                        <div className="ml-auto text-red-600 font-bold">
+                          +14
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Top Projects Card */}
+                  <div className="col-span-2 bg-white p-6 rounded-lg shadow-md">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h2 className="text-lg font-semibold">Top Projects</h2>
+                        <p className="text-sm text-gray-500">Best Products</p>
+                      </div>
+                      <div className="">
+                        <SelectDropdown
+                          options={["March 2024", "Apr 2024", "May 2024"]}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Projects Table  */}
+                    <ProjectsTable projects={projects} />
                   </div>
                 </div>
               </div>

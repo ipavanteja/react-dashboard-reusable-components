@@ -1,10 +1,38 @@
-import { useContext } from "react";
-import { BellRing, Menu, Moon, Search, ShoppingCart } from "lucide-react";
+import { useContext, useEffect, useState } from "react";
+import { BellRing, Menu, Moon, ShoppingCart } from "lucide-react";
 import { DataContext } from "../contexts/DataProvider";
+import SearchButtonModal from "./SearchButtonModel";
+import AppsDropdown from "./AppsDropdown";
 
 const Navbar = () => {
   const { sidebarOpen, setSidebarOpen, smallSidebarOpen, setSmallSidebarOpen } =
     useContext(DataContext);
+  const [isLgScreen, setIsLgScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLgScreen(window.innerWidth >= 1024); // Tailwind's `lg` screen starts from 1024px
+    };
+
+    // Call once on component mount to set the initial state
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleClick = () => {
+    if (isLgScreen) {
+      setSmallSidebarOpen(!smallSidebarOpen);
+    } else {
+      setSidebarOpen(!sidebarOpen);
+    }
+  };
 
   return (
     <header className="bg-white text-[13.5px] py-2 px-7 flex justify-between items-center">
@@ -13,17 +41,22 @@ const Navbar = () => {
         <div className="hover:bg-sky-100 p-2   rounded-full cursor-pointer">
           <Menu
             className="w-4 h-4 text-gray-700 hover:text-blue-600"
-            onClick={() => setSmallSidebarOpen(!smallSidebarOpen)}
+            onClick={handleClick}
           />
         </div>
 
         {/* Search Icon */}
-        <div className="hover:bg-sky-100 p-3 rounded-full cursor-pointer">
-          <Search className="w-3 h-3 text-gray-700 hover:text-blue-600" />
+        <div className="">
+          {/* <Search className="w-3 h-3 text-gray-700 hover:text-blue-600" /> */}
+          <SearchButtonModal onSearch={{}} modalPosition="top" />
         </div>
+
+        {/* Apps Dropdown */}
+        <AppsDropdown />
+
         {/* Nav Items */}
         <nav className="flex items-center">
-          {["Apps", "Chat", "Calendar", "Email"].map((item) => (
+          {["Chat", "Calendar", "Email"].map((item) => (
             <h1
               key={item}
               className="hover:bg-sky-100 hover:text-blue-600 px-3.5 py-1.5 rounded-md cursor-pointer text-center"

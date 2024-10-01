@@ -20,22 +20,25 @@ ChartJS.register(
   Legend
 );
 
-const BarChart = ({ labels, dataSets, borderThickness, width, height }) => {
+const BarChart = ({
+  labels,
+  dataSets,
+  backgroundColor,
+  borderRadius,
+  borderThickness,
+  categoryPercentage,
+  barPercentage,
+  width,
+  height,
+}) => {
   const data = {
     labels: labels,
     datasets: [
       {
         label: "Data",
         data: dataSets, // Example data
-        backgroundColor: [
-          "#f2f6fad9", // April light gray
-          "#f2f6fad9", // May light gray
-          "#5d87ffd9", // June blue
-          "#f2f6fad9", // July light gray
-          "#f2f6fad9", // August light gray
-          "#f2f6fad9", // September light gray
-        ],
-        borderRadius: 5, // Rounded bar corners
+        backgroundColor: backgroundColor,
+        borderRadius: borderRadius, // Rounded bar corners
         barThickness: borderThickness, // Thickness of bars
       },
     ],
@@ -51,6 +54,8 @@ const BarChart = ({ labels, dataSets, borderThickness, width, height }) => {
         ticks: {
           color: "#6B7280", // Tailwind gray-400
         },
+        categoryPercentage: categoryPercentage, // Adjust the category (group) width
+        barPercentage: barPercentage, // Adjust the width of the bars
       },
       y: {
         grid: {
